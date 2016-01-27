@@ -5,7 +5,7 @@
 #include "Arduino.h"
 
 extern "C" {
-  typedef void (*callback)(unsigned long);
+  typedef void (*ebCb)(unsigned long);
 }
 
 class EasyButton
@@ -17,10 +17,10 @@ public:
   void read(void);
 
   //callbacks
-  void attachDown(callback f);
-  void attachUp(callback f);
-  void attachClick(callback f);
-  void attachLongPress(callback f);
+  void attachDown(ebCb f);
+  void attachUp(ebCb f);
+  void attachClick(ebCb f);
+  void attachLongPress(ebCb f);
 
   int state; //(debounced)
   unsigned int debounceMs = 20;
@@ -29,10 +29,10 @@ public:
 private:
   int _pin;
 
-  callback _downFunc;
-  callback _upFunc;
-  callback _clickFunc;
-  callback _longPressFunc;
+  ebCb _downFunc;
+  ebCb _upFunc;
+  ebCb _clickFunc;
+  ebCb _longPressFunc;
 
   unsigned long _pinState;
 

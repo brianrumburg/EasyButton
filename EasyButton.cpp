@@ -11,22 +11,22 @@ EasyButton::EasyButton(int pin)
   state = newPinState;
 }
 
-void EasyButton::attachDown(callback f)
+void EasyButton::attachDown(ebCb f)
 {
   _downFunc = f;
 }
 
-void EasyButton::attachUp(callback f)
+void EasyButton::attachUp(ebCb f)
 {
   _upFunc = f;
 }
 
-void EasyButton::attachClick(callback f)
+void EasyButton::attachClick(ebCb f)
 {
   _clickFunc = f;
 }
 
-void EasyButton::attachLongPress(callback f)
+void EasyButton::attachLongPress(ebCb f)
 {
   _longPressFunc = f;
 }
